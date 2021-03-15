@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDxImportXls", "WpfApp1\WpfDxImportXls.csproj", "{36B7788F-0BA6-48C8-A249-57B9C495DABF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36B7788F-0BA6-48C8-A249-57B9C495DABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B7788F-0BA6-48C8-A249-57B9C495DABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B7788F-0BA6-48C8-A249-57B9C495DABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B7788F-0BA6-48C8-A249-57B9C495DABF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D589A4A8-EB47-4548-BF47-6C4670B3CA65}
+	EndGlobalSection
+EndGlobal
