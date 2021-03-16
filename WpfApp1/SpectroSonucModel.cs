@@ -28,6 +28,14 @@ namespace WpfApp1
         public decimal Si { get; set; }
 
         public decimal P { get; set; }
-
+        public string DokumHatti { get; internal set; }
+        public string Alasim { get; internal set; }
+        public decimal Fe { get; internal set; }
+        public decimal Cu { get; internal set; }
+        public decimal Mn { get; internal set; }
+        public decimal Ti { get; internal set; }
+        public decimal Zn { get; internal set; }
+        public decimal Al { get; internal set; }
+        public string BobinNo { get; internal set; }
     }
 }

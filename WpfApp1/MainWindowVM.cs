@@ -62,33 +62,39 @@ namespace WpfApp1
                 var tarih = DateTime.Parse(ws.Cells[i, 0].Value.ToString());
                 var bolge = ws.Cells[i, 1].Value.ToString();
                 var elemanSayisi = int.Parse(ws.Cells[i, 2].Value.ToString());
+                var bobinNo = ws.Cells[i, 2].Value.ToString();
 
+                //Si Fe	Cu	Mn Mg Ti Zn Al
 
-                //Li Be	B	Na	Mg	Si	P	Ca	Ti	V	Cr	Mn	Fe	Ni	Cu
-
-
-                var Li =decimal.Parse(ws.Cells[i, 3].Value.ToString());
-                var Be = decimal.Parse(ws.Cells[i, 4].Value.ToString());
-                var B = decimal.Parse(ws.Cells[i, 5].Value.ToString());
-                var Na = decimal.Parse(ws.Cells[i, 6].Value.ToString());
-
-                var Mg = decimal.Parse(ws.Cells[i, 7].Value.ToString());
                 var Si = decimal.Parse(ws.Cells[i, 8].Value.ToString());
-                var P = decimal.Parse(ws.Cells[i, 9].Value.ToString());
+                var Fe = decimal.Parse(ws.Cells[i, 15].Value.ToString());
+                var Cu = decimal.Parse(ws.Cells[i, 17].Value.ToString());
 
+                var Mn = decimal.Parse(ws.Cells[i, 14].Value.ToString());
+                var Mg = decimal.Parse(ws.Cells[i, 7].Value.ToString());
+                var Ti = decimal.Parse(ws.Cells[i, 11].Value.ToString());
+
+                var Zn = decimal.Parse(ws.Cells[i, 18].Value.ToString());
+                var Al = decimal.Parse(ws.Cells[i, 26].Value.ToString());
 
                 var s1 = new SpectroSonucModel 
                 { 
                     Tarih =tarih,
-                    Bolge=bolge,
+                    Bolge = bolge.Split('-')[0].Trim(),
+                    DokumHatti=bolge.Split('-')[1].Trim(),
+                    Alasim=bolge.Split('-')[2].Trim(),
                     ElemanSayisi=elemanSayisi,
-                    Li=Li,
-                    Be=Be,
-                    B = B,
-                    Na = Na,
-                    Mg=Mg,
+                    BobinNo=bobinNo,
                     Si=Si,
-                    P=P
+                    Fe=Fe,
+                    Cu = Cu,
+
+                    Mn = Mn,
+                    Mg=Mg,
+                    Ti=Ti,
+
+                    Zn=Zn,
+                    Al=Al
 
                 };
 

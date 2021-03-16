@@ -26,7 +26,7 @@
 
         <dxg:GridControl
             Grid.Row="1"
-            AutoGenerateColumns="AddNew"
+            AutoGenerateColumns="None"
             EnableSmartColumnsGeneration="True"
             ItemsSource="{Binding SpektroSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
@@ -51,84 +51,7 @@
                     RowMinHeight="35"
                     ShowAutoFilterRow="True"
                     ShowGroupPanel="False"
-                    ShowTotalSummary="True">
-                    <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition
-                            FieldName="Li"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-                        <dxg:FormatCondition
-                            FieldName="Be"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-                        <dxg:FormatCondition
-                            FieldName="B"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-                        <dxg:FormatCondition
-                            FieldName="Na"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-                        <dxg:FormatCondition
-                            FieldName="Mg"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-
-                        <dxg:FormatCondition
-                            FieldName="Si"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-
-                        <dxg:FormatCondition
-                            FieldName="P"
-                            Value1="0"
-                            ValueRule="Less">
-                            <dx:Format
-                                Background="Red"
-                                Foreground="White"
-                                TextDecorations="{x:Null}" />
-                        </dxg:FormatCondition>
-
-
-
-                    </dxg:TableView.FormatConditions>
-                </dxg:TableView>
+                    ShowTotalSummary="True" />
             </dxg:GridControl.View>
             <dxg:GridColumn
                 Width="150"
@@ -139,33 +62,56 @@
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn
-                Width="180"
+                Width="80"
                 AutoFilterCriteria="Contains"
                 FieldName="Bolge"
                 IsSmart="True" />
+
+            <dxg:GridColumn
+                Width="80"
+                AutoFilterCriteria="Contains"
+                FieldName="DokumHatti"
+                Header="DH"
+                IsSmart="True" />
+
+            <dxg:GridColumn
+                Width="80"
+                AutoFilterCriteria="Contains"
+                FieldName="Alasim"
+                IsSmart="True" />
+
             <dxg:GridColumn
                 Width="80"
                 EditSettings="{dxe:TextSettings HorizontalContentAlignment=Center}"
                 FieldName="ElemanSayisi"
                 Header="Elm.Say"
                 IsSmart="True" />
+
             <dxg:GridColumn
                 Width="80"
-                FieldName="Li"
+                EditSettings="{dxe:TextSettings HorizontalContentAlignment=Center}"
+                FieldName="BobinNo"
                 IsSmart="True" />
+
+
             <dxg:GridColumn
                 Width="80"
-                FieldName="Be"
+                FieldName="Si"
                 IsSmart="True" />
 
             <dxg:GridColumn
                 Width="80"
-                FieldName="B"
+                FieldName="Fe"
                 IsSmart="True" />
 
             <dxg:GridColumn
                 Width="80"
-                FieldName="Na"
+                FieldName="Cu"
+                IsSmart="True" />
+
+            <dxg:GridColumn
+                Width="80"
+                FieldName="Mn"
                 IsSmart="True" />
 
             <dxg:GridColumn
@@ -175,46 +121,52 @@
 
             <dxg:GridColumn
                 Width="80"
-                FieldName="Si"
+                FieldName="Ti"
                 IsSmart="True" />
 
             <dxg:GridColumn
                 Width="80"
-                FieldName="P"
+                FieldName="Zn"
+                IsSmart="True" />
+
+            <dxg:GridColumn
+                Width="80"
+                FieldName="Al"
                 IsSmart="True" />
 
         </dxg:GridControl>
 
         <StackPanel Orientation="Horizontal">
             <Button
-            Width="185"
-            Height="31"
-            Margin="10"
-            HorizontalAlignment="Left"
-            Command="{Binding DosyaSecCommand}"
-            Content="Sonuç Dosyası Seç"
-            FontWeight="Bold" />
+                Width="185"
+                Height="31"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Command="{Binding DosyaSecCommand}"
+                Content="Sonuç Dosyası Seç"
+                FontWeight="Bold" />
 
             <Button
-            Width="185"
-            Height="31"
-            Margin="10"
-            HorizontalAlignment="Left"
-            Command="{Binding YenileCommand}"
-            Content="Yenile"
-            FontWeight="Bold" />
+                Width="185"
+                Height="31"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Command="{Binding YenileCommand}"
+                Content="Yenile"
+                FontWeight="Bold" />
 
 
             <Button
-            Width="185"
-            Height="31"
-            Margin="10"
-            HorizontalAlignment="Left"
-            Command="{Binding ExcelExportCommand}"
-            Content="Excel Export"
-            FontWeight="Bold" Click="Button_Click" />
+                Width="185"
+                Height="31"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Click="Button_Click"
+                Command="{Binding ExcelExportCommand}"
+                Content="Excel Export"
+                FontWeight="Bold" />
         </StackPanel>
-     
+
 
     </Grid>
 </Window>
