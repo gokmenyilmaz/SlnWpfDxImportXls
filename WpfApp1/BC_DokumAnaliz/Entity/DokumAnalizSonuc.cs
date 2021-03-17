@@ -24,15 +24,14 @@ namespace WpfApp1.BC_DokumKalite
         public string Si_Err { get; set; }
 
         public decimal Fe { get; set; }
-        public decimal? Cu { get; set; }
-        public decimal? Mn { get; set; }
-        public decimal? Mg { get; set; }
-        public decimal? Ti { get; set; }
-        public decimal? Zn { get; set; }
-        public decimal? Al { get; set; }
-
-
-        
+        public decimal Cu { get; set; }
+        public decimal Mn { get; set; }
+        public decimal Mg { get; set; }
+        public decimal Ti { get; set; }
+        public decimal Zn { get; set; }
+        public decimal Al { get; set; }
+        public string Fe_Err { get; internal set; }
+        public string Cu_Err { get; internal set; }
     }
 
 

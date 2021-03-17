@@ -116,7 +116,9 @@ namespace WpfApp1
         {
             foreach (var item in DokumAnalizSonucListe)
             {
-                item.Si_Err = "xx";
+                item.Si_Err = AlasimHataGetir(item.Alasim, "Si", item.Si);
+                item.Fe_Err = AlasimHataGetir(item.Alasim, "Fe", item.Fe);
+                item.Cu_Err = AlasimHataGetir(item.Alasim, "Cu", item.Cu);
             }
         }
 
@@ -125,6 +127,25 @@ namespace WpfApp1
             DokumAnalizSonucListe = new ObservableCollection<DokumAnalizSonuc>();
 
             DokumAlasimSinirlari = repo.DokumAnalizSinirlariGetir();
+
+        }
+
+
+        public string AlasimHataGetir(string alasim, string elementName, decimal sonucDeger)
+        {
+            var alasimSinirlari = DokumAlasimSinirlari.FirstOrDefault(c => c.Alasim == alasim);
+
+            if(alasimSinirlari==null)  return "Alaşım Yok";
+
+            var min= alasimSinirlari.GetType().GetProperty(elementName + "Min").GetValue(alasimSinirlari);
+            var max = alasimSinirlari.GetType().GetProperty(elementName + "Max").GetValue(alasimSinirlari);
+
+            var d_min = (decimal)min;
+            var d_max = (decimal)max;
+
+            var hatali = sonucDeger < d_min || sonucDeger > d_max;
+
+            return hatali==true?$"[{min}-{max}]":"";
 
         }
     }
