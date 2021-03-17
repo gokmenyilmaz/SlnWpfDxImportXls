@@ -26,6 +26,15 @@ namespace WpfApp1
 
         public DelegateCommand YenileCommand => new DelegateCommand(onYenile);
 
+        DokumAnalizSonucRepository repoAnalizSonuc = new DokumAnalizSonucRepository();
+
+        public DelegateCommand DbGuncelleCommand => new DelegateCommand(OnDbGuncelle);
+
+        private void OnDbGuncelle()
+        {
+             repoAnalizSonuc.Upsert_DokumAnalizSonuclar(DokumAnalizSonucListe);
+        }
+
         public DelegateCommand AlasimSinirFormGosterCommand => new DelegateCommand(OnAlasimSinirFormGoster);
 
         public DelegateCommand AlasimAnalizRaporGosterCommand => new DelegateCommand(OnAlasimAnalizRaporGoster);
@@ -54,7 +63,11 @@ namespace WpfApp1
         private void onYenile()
         {
             if (!String.IsNullOrEmpty(AktifFileName))
+            {
                 VerileriYukle(AktifFileName);
+                OnDbGuncelle();
+            }
+               
             else
                 MessageBox.Show("Dosya seçiniz");
           

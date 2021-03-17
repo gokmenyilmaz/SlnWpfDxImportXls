@@ -323,6 +323,16 @@
                 Height="31"
                 Margin="10"
                 HorizontalAlignment="Left"
+                Command="{Binding DbGuncelleCommand}"
+                Content="Db Güncelle"
+                FontWeight="Bold" />
+
+
+            <Button
+                Width="185"
+                Height="31"
+                Margin="10"
+                HorizontalAlignment="Left"
                 Command="{Binding AlasimSinirFormGosterCommand}"
                 Content="Alasim Sınırları"
                 FontWeight="Bold" />

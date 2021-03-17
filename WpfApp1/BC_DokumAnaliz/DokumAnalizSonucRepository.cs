@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,5 +33,24 @@ namespace WpfApp1.BC_DokumAnaliz
 
             return sonuc;
         }
+
+
+        public void Upsert_DokumAnalizSonuclar(ObservableCollection<DokumAnalizSonuc> analizSonuclar)
+        {
+            foreach (var item in analizSonuclar)
+            {
+                var satir = dc.DokumAnalizSonuclari
+                  .Where(c => c.TarihSaat == item.TarihSaat)
+                  .AsNoTracking()
+                  .FirstOrDefault();
+
+
+                if(satir==null) dc.DokumAnalizSonuclari.Add(item);
+               
+            }
+
+            dc.SaveChanges();
+        }
+
     }
 }
