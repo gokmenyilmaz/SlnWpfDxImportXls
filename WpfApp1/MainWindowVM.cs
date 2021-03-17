@@ -80,11 +80,10 @@ namespace WpfApp1
 
                 var s1 = new DokumAnalizSonuc 
                 { 
-                    Tarih =tarih,
+                    TarihSaat =tarih,
                     Bolge = bolge.Split('-')[0].Trim(),
                     DokumHatti=bolge.Split('-')[1].Trim(),
                     Alasim=bolge.Split('-')[2].Trim(),
-                    ElemanSayisi=elemanSayisi,
                     BobinNo=bobinNo,
                     Si=Si,
                     Fe=Fe,
