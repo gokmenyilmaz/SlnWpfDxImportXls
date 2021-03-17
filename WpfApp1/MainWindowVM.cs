@@ -107,6 +107,17 @@ namespace WpfApp1
 
          
             workbook.Dispose();
+
+
+            SinirHatalariYukle();
+        }
+
+        private void SinirHatalariYukle()
+        {
+            foreach (var item in DokumAnalizSonucListe)
+            {
+                item.Si_Err = "xx";
+            }
         }
 
         public MainWindowVM()

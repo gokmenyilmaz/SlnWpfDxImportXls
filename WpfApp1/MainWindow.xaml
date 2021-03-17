@@ -90,8 +90,18 @@
 
             <dxg:GridColumn
                 Width="80"
+               
                 FieldName="Si"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="4" VerticalAlignment="Top" >
+                            <TextBlock Text="{Binding RowData.Row.Si}" />
+                            <TextBlock Foreground="Red" Text="{Binding RowData.Row.Si_Err}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
