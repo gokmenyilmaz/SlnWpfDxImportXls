@@ -98,6 +98,7 @@
 
 
             <dxg:GridColumn
+                AutoFilterCriteria="Contains"
                 Width="80"
                 EditSettings="{dxe:TextSettings HorizontalContentAlignment=Center}"
                 FieldName="BobinNo"
