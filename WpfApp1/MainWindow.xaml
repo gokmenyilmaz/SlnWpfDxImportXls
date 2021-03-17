@@ -28,7 +28,7 @@
             Grid.Row="1"
             AutoGenerateColumns="None"
             EnableSmartColumnsGeneration="True"
-            ItemsSource="{Binding SpektroSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            ItemsSource="{Binding DokumAnalizSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
             <dxg:GridControl.Resources>
                 <Style TargetType="{x:Type dxg:GridColumn}">
@@ -55,7 +55,7 @@
             </dxg:GridControl.View>
             <dxg:GridColumn
                 Width="150"
-                FieldName="Tarih"
+                FieldName="TarihSaat"
                 IsSmart="True">
                 <dxg:GridColumn.EditSettings>
                     <dxe:TextEditSettings DisplayFormat="dd/MM/yyyy hh:mm:ss" />
@@ -80,12 +80,6 @@
                 FieldName="Alasim"
                 IsSmart="True" />
 
-            <dxg:GridColumn
-                Width="80"
-                EditSettings="{dxe:TextSettings HorizontalContentAlignment=Center}"
-                FieldName="ElemanSayisi"
-                Header="Elm.Say"
-                IsSmart="True" />
 
             <dxg:GridColumn
                 Width="80"

@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 using DevExpress.Spreadsheet;
 using System.Collections.ObjectModel;
 using System.Windows;
+using WpfApp1.BC_DokumKalite;
 
 namespace WpfApp1
 {
    public class MainWindowVM
     {
-        public ObservableCollection<SpectroSonucModel> SpektroSonucListe { get; set; }
+        public ObservableCollection<DokumAnalizSonuc> DokumAnalizSonucListe { get; set; }
 
         public DelegateCommand DosyaSecCommand => new DelegateCommand(onDosyaSec);
 
@@ -46,7 +47,7 @@ namespace WpfApp1
 
         private void VerileriYukle(string fileName)
         {
-            SpektroSonucListe.Clear();
+            DokumAnalizSonucListe.Clear();
 
             Workbook workbook = new Workbook();
             workbook.LoadDocument(fileName);
@@ -77,7 +78,7 @@ namespace WpfApp1
                 var Zn = decimal.Parse(ws.Cells[i, 18].Value.ToString());
                 var Al = decimal.Parse(ws.Cells[i, 26].Value.ToString());
 
-                var s1 = new SpectroSonucModel 
+                var s1 = new DokumAnalizSonuc 
                 { 
                     Tarih =tarih,
                     Bolge = bolge.Split('-')[0].Trim(),
@@ -98,7 +99,7 @@ namespace WpfApp1
 
                 };
 
-                SpektroSonucListe.Add(s1);
+                DokumAnalizSonucListe.Add(s1);
                
             }
 
@@ -108,7 +109,7 @@ namespace WpfApp1
 
         public MainWindowVM()
         {
-            SpektroSonucListe = new ObservableCollection<SpectroSonucModel>();
+            DokumAnalizSonucListe = new ObservableCollection<DokumAnalizSonuc>();
 
         }
     }
