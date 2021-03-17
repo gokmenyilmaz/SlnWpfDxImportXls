@@ -34,6 +34,10 @@
             EnableSmartColumnsGeneration="True"
             ItemsSource="{Binding DokumAnalizSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
+            <dxg:GridControl.TotalSummary>
+                <dxg:GridSummaryItem DisplayFormat="n0" FieldName="TarihSaat" ShowInColumn="TarihSaat" SummaryType="Count"/>
+            </dxg:GridControl.TotalSummary>
+
             <dxg:GridControl.Resources>
                 <Style TargetType="{x:Type dxg:GridColumn}">
                     <Setter Property="ReadOnly" Value="true" />

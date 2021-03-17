@@ -29,9 +29,12 @@
 
         <dxg:GridControl
             Grid.Row="1"
+         
             AutoGenerateColumns="None"
             EnableSmartColumnsGeneration="True"
             ItemsSource="{Binding DokumAnalizSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            
+           
 
             <dxg:GridControl.Resources>
                 <Style TargetType="{x:Type dxg:GridColumn}">
@@ -46,6 +49,9 @@
                 </Style>
 
             </dxg:GridControl.Resources>
+            <dxg:GridControl.TotalSummary>
+                <dxg:GridSummaryItem DisplayFormat="n0" FieldName="TarihSaat" ShowInColumn="TarihSaat" SummaryType="Count"/>
+            </dxg:GridControl.TotalSummary>
 
             <dxg:GridControl.View>
                 <dxg:TableView
@@ -55,6 +61,9 @@
                     ShowAutoFilterRow="True"
                     ShowGroupPanel="False"
                     ShowTotalSummary="True" />
+                
+               
+                
             </dxg:GridControl.View>
             <dxg:GridColumn
                 Width="100"
