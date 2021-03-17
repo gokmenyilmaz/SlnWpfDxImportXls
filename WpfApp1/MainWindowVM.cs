@@ -9,13 +9,16 @@ using DevExpress.Spreadsheet;
 using System.Collections.ObjectModel;
 using System.Windows;
 using WpfApp1.BC_DokumKalite;
+using WpfApp1.BC_DokumAnaliz;
 
 namespace WpfApp1
 {
    public class MainWindowVM
     {
         public ObservableCollection<DokumAnalizSonuc> DokumAnalizSonucListe { get; set; }
+        public List<DokumAlasimSinir> DokumAlasimSinirlari { get; }
 
+        DokumAnalizRepository repo = new DokumAnalizRepository();
         public DelegateCommand DosyaSecCommand => new DelegateCommand(onDosyaSec);
 
         public DelegateCommand YenileCommand => new DelegateCommand(onYenile);
@@ -109,6 +112,8 @@ namespace WpfApp1
         public MainWindowVM()
         {
             DokumAnalizSonucListe = new ObservableCollection<DokumAnalizSonuc>();
+
+            DokumAlasimSinirlari = repo.DokumAnalizSinirlariGetir();
 
         }
     }

@@ -182,9 +182,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BC_DokumAnaliz\DokumAnalizDbContext.cs" />
-    <Compile Include="BC_DokumAnaliz\DokumAlasimSinir.cs" />
+    <Compile Include="BC_DokumAnaliz\Entity\DokumAlasimSinir.cs" />
     <Compile Include="BC_DokumAnaliz\DokumAnalizRepository.cs" />
-    <Compile Include="BC_DokumAnaliz\DokumAnalizSonuc.cs" />
+    <Compile Include="BC_DokumAnaliz\Entity\DokumAnalizSonuc.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

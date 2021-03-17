@@ -17,7 +17,7 @@ namespace WpfApp1.BC_DokumAnaliz
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var cnnStr = "server=.,database=pandapdb;user id=sa;password=Ankara!06";
+            var cnnStr = "server=.;database=pandapdb;user id=sa;password=Ankara!06";
             optionsBuilder.UseSqlServer(cnnStr);
 
 
