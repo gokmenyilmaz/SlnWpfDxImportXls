@@ -30,7 +30,7 @@ namespace WpfApp1
         public AlasimSinirVM()
         {
             AlasimSinirlari = new List<DokumAlasimSinir>();
-            //AlasimSinirlari =repo.DokumAnalizSinirlariGetir();
+            AlasimSinirlari =repo.DokumAnalizSinirlariGetir();
         }
 
 
