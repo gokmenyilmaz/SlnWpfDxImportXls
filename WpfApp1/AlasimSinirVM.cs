@@ -31,6 +31,9 @@ namespace WpfApp1
         {
             AlasimSinirlari = new List<DokumAlasimSinir>();
             AlasimSinirlari =repo.DokumAnalizSinirlariGetir();
+
+
+
         }
 
 

@@ -5,12 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
     xmlns:local="clr-namespace:WpfApp1"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="AlasimSinirView"
     Width="1058.2"
     Height="601.4"
-    FontSize="15"
+    FontSize="14"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.DataContext>
@@ -43,9 +44,17 @@
             EnableSmartColumnsGeneration="True"
             ItemsSource="{Binding AlasimSinirlari, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <dxg:GridControl.Resources>
-               
+
+                <Style
+                    x:Key="cell1"
+                    BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=LightweightCellStyle}}"
+                    TargetType="{x:Type dxg:LightweightCellEditor}">
+                    <Setter Property="Background" Value="WhiteSmoke" />
+
+                </Style>
+
                 <Style x:Key="c1" TargetType="{x:Type dxg:GridColumnHeader}">
-                    <Setter Property="FontWeight" Value="DemiBold" />
+                    <Setter Property="FontWeight" Value="DemiBold"/>
                     <Setter Property="Background" Value="White" />
                     <Setter Property="Foreground" Value="Black" />
                     <Setter Property="Height" Value="40" />
@@ -53,7 +62,7 @@
 
 
                 <Style x:Key="c2" TargetType="{x:Type dxg:GridColumnHeader}">
-                    <Setter Property="FontWeight" Value="DemiBold" />
+                    <Setter Property="FontWeight" Value="DemiBold"/>
                     <Setter Property="Background" Value="WhiteSmoke" />
                     <Setter Property="Foreground" Value="Black" />
                     <Setter Property="Height" Value="40" />
@@ -66,7 +75,6 @@
             <dxg:GridControl.View>
                 <dxg:TableView
                     Name="view1"
-                    AlternateRowBackground="WhiteSmoke"
                     AutoWidth="True"
                     RowMinHeight="35"
                     ShowAutoFilterRow="True"
@@ -78,12 +86,14 @@
                 Width="120"
                 FieldName="Alasim"
                 Header="Alaşım"
-              
                 IsSmart="True">
 
                 <dxg:GridColumn.CellTemplate>
                     <DataTemplate>
-                        <dxe:TextEdit HorizontalContentAlignment="Center" Name="PART_Editor" FontWeight="DemiBold" />
+                        <dxe:TextEdit Background="WhiteSmoke"
+                            Name="PART_Editor"
+                            HorizontalContentAlignment="Center"
+                            FontWeight="DemiBold" />
                     </DataTemplate>
                 </dxg:GridColumn.CellTemplate>
 
@@ -96,99 +106,106 @@
             </dxg:GridColumn>
             <dxg:GridColumn
                 Width="80"
-                 Header="Si min"
                 FieldName="SiMin"
+                Header="Si min"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
                 FieldName="SiMax"
+                Header="max"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="Fe min"
+                CellStyle="{StaticResource cell1}"
                 FieldName="FeMin"
+                Header="Fe min"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
+                CellStyle="{StaticResource cell1}"
                 FieldName="FeMax"
+                Header="max"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                 Header="Cu min"
                 FieldName="CuMin"
+                Header="Cu min"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
                 FieldName="CuMax"
+                Header="max"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                 Header="Mn min"
+                CellStyle="{StaticResource cell1}"
                 FieldName="MnMin"
+                Header="Mn min"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
-                
+                CellStyle="{StaticResource cell1}"
                 FieldName="MnMax"
+                Header="max"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                 Header="Mg min"
                 FieldName="MgMin"
+                Header="Mg min"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
                 FieldName="MgMax"
+                Header="max"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                 Header="Ti min"
+                CellStyle="{StaticResource cell1}"
                 FieldName="TiMin"
+                Header="Ti min"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
+                CellStyle="{StaticResource cell1}"
                 FieldName="TiMax"
+                Header="max"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                 Header="Zn min"
                 FieldName="ZnMin"
+                Header="Zn min"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
                 FieldName="ZnMax"
+                Header="max"
                 HeaderStyle="{StaticResource c1}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                 Header="Al min"
+                CellStyle="{StaticResource cell1}"
                 FieldName="AlMin"
+                Header="Al min"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
             <dxg:GridColumn
                 Width="80"
-                Header="max"
+                CellStyle="{StaticResource cell1}"
                 FieldName="AlMax"
+                Header="max"
                 HeaderStyle="{StaticResource c2}"
                 IsSmart="True" />
 

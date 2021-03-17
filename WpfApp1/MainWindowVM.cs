@@ -18,7 +18,7 @@ namespace WpfApp1
         public ObservableCollection<DokumAnalizSonuc> DokumAnalizSonucListe { get; set; }
         public List<DokumAlasimSinir> DokumAlasimSinirlari { get; }
 
-        DokumAnalizRepository repo = new DokumAnalizRepository();
+        DokumAnalizSonucRepository repo = new DokumAnalizSonucRepository();
 
         DokumAlasimRepository repoAlasimSinir = new DokumAlasimRepository();
 
@@ -28,9 +28,20 @@ namespace WpfApp1
 
         public DelegateCommand AlasimSinirFormGosterCommand => new DelegateCommand(OnAlasimSinirFormGoster);
 
+        public DelegateCommand AlasimAnalizRaporGosterCommand => new DelegateCommand(OnAlasimAnalizRaporGoster);
+
+        private void OnAlasimAnalizRaporGoster()
+        {
+            AlasimAnalizRaporView vw = new AlasimAnalizRaporView();
+            AlasimAnalizSorguVM vm = new AlasimAnalizSorguVM();
+            vw.DataContext = vm;
+
+            vw.Show();
+         
+        }
+
         private void OnAlasimSinirFormGoster()
         {
-
             AlasimSinirView vw = new AlasimSinirView();
             AlasimSinirVM vm = new AlasimSinirVM();
             vw.DataContext = vm;
@@ -131,15 +142,15 @@ namespace WpfApp1
         {
             foreach (var item in DokumAnalizSonucListe)
             {
-                item.Si_Err = AlasimHataGetir(item.Alasim, "Si", item.Si);
-                item.Fe_Err = AlasimHataGetir(item.Alasim, "Fe", item.Fe);
-                item.Cu_Err = AlasimHataGetir(item.Alasim, "Cu", item.Cu);
+                item.Si_Err = Utils.AlasimHataGetir(item.Alasim, "Si", item.Si, DokumAlasimSinirlari);
+                item.Fe_Err = Utils.AlasimHataGetir(item.Alasim, "Fe", item.Fe, DokumAlasimSinirlari);
+                item.Cu_Err = Utils.AlasimHataGetir(item.Alasim, "Cu", item.Cu, DokumAlasimSinirlari);
 
-                item.Mn_Err = AlasimHataGetir(item.Alasim, "Mn", item.Mn);
-                item.Mg_Err = AlasimHataGetir(item.Alasim, "Mg", item.Mg);
-                item.Ti_Err = AlasimHataGetir(item.Alasim, "Ti", item.Ti);
-                item.Zn_Err = AlasimHataGetir(item.Alasim, "Zn", item.Zn);
-                item.Al_Err = AlasimHataGetir(item.Alasim, "Al", item.Al);
+                item.Mn_Err = Utils.AlasimHataGetir(item.Alasim, "Mn", item.Mn, DokumAlasimSinirlari);
+                item.Mg_Err = Utils.AlasimHataGetir(item.Alasim, "Mg", item.Mg, DokumAlasimSinirlari);
+                item.Ti_Err = Utils.AlasimHataGetir(item.Alasim, "Ti", item.Ti, DokumAlasimSinirlari);
+                item.Zn_Err = Utils.AlasimHataGetir(item.Alasim, "Zn", item.Zn, DokumAlasimSinirlari);
+                item.Al_Err = Utils.AlasimHataGetir(item.Alasim, "Al", item.Al, DokumAlasimSinirlari);
             }
         }
 
@@ -152,22 +163,6 @@ namespace WpfApp1
         }
 
 
-        public string AlasimHataGetir(string alasim, string elementName, decimal sonucDeger)
-        {
-            var alasimSinirlari = DokumAlasimSinirlari.FirstOrDefault(c => c.Alasim == alasim);
-
-            if(alasimSinirlari==null)  return "Alaşım Yok";
-
-            var min= alasimSinirlari.GetType().GetProperty(elementName + "Min").GetValue(alasimSinirlari);
-            var max = alasimSinirlari.GetType().GetProperty(elementName + "Max").GetValue(alasimSinirlari);
-
-            var d_min = (decimal)min;
-            var d_max = (decimal)max;
-
-            var hatali = sonucDeger < d_min || sonucDeger > d_max;
-
-            return hatali==true?$"[{min}-{max}]":"";
-
-        }
+       
     }
 }

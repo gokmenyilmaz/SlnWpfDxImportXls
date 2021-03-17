@@ -181,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlasimAnalizSorguView.xaml.cs">
+      <DependentUpon>AlasimAnalizSorguView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlasimAnalizSorguVM.cs" />
     <Compile Include="AlasimSinirView.xaml.cs">
       <DependentUpon>AlasimSinirView.xaml</DependentUpon>
     </Compile>
@@ -188,8 +192,13 @@
     <Compile Include="BC_DokumAnaliz\DokumAlasimRepository.cs" />
     <Compile Include="BC_DokumAnaliz\_DokumAnalizDbContext.cs" />
     <Compile Include="BC_DokumAnaliz\Entity\DokumAlasimSinir.cs" />
-    <Compile Include="BC_DokumAnaliz\DokumAnalizRepository.cs" />
+    <Compile Include="BC_DokumAnaliz\DokumAnalizSonucRepository.cs" />
     <Compile Include="BC_DokumAnaliz\Entity\DokumAnalizSonuc.cs" />
+    <Compile Include="Utils.cs" />
+    <Page Include="AlasimAnalizSorguView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AlasimSinirView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
