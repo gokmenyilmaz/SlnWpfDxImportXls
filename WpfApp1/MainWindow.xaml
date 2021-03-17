@@ -18,6 +18,10 @@
         <local:MainWindowVM />
     </Window.DataContext>
 
+    <Window.Resources>
+        <local:DokumAlasimSinirRenkConverter x:Key="cnv1"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" MinHeight="55.2" />
@@ -90,14 +94,16 @@
 
             <dxg:GridColumn
                 Width="80"
-               
                 FieldName="Si"
                 IsSmart="True">
                 <dxg:GridColumn.CellTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="4" VerticalAlignment="Top" >
-                            <TextBlock Text="{Binding RowData.Row.Si}" />
-                            <TextBlock Foreground="Red" Text="{Binding RowData.Row.Si_Err}" />
+                        <StackPanel Margin="4" VerticalAlignment="Top">
+                            <TextBlock  Text="{Binding RowData.Row.Si}" 
+                                        Foreground="{Binding RowData.Row.Si_Err, Converter={StaticResource cnv1}}"  />
+                            <TextBlock
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Si_Err}" />
                         </StackPanel>
                     </DataTemplate>
                 </dxg:GridColumn.CellTemplate>
@@ -106,12 +112,28 @@
             <dxg:GridColumn
                 Width="80"
                 FieldName="Fe"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="4" VerticalAlignment="Top">
+                            <TextBlock Text="{Binding RowData.Row.Fe}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
                 FieldName="Cu"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="4" VerticalAlignment="Top">
+                            <TextBlock Text="{Binding RowData.Row.Cu}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
