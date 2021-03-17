@@ -318,6 +318,15 @@
                 Content="Yenile"
                 FontWeight="Bold" />
 
+            <Button
+                Width="185"
+                Height="31"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Command="{Binding AlasimSinirFormGosterCommand}"
+                Content="Alasim Sınırları"
+                FontWeight="Bold" />
+
 
             <Button
                 Width="185"
@@ -328,6 +337,8 @@
                 Command="{Binding ExcelExportCommand}"
                 Content="Excel Export"
                 FontWeight="Bold" />
+
+
         </StackPanel>
 
 

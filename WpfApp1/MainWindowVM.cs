@@ -26,6 +26,18 @@ namespace WpfApp1
 
         public DelegateCommand YenileCommand => new DelegateCommand(onYenile);
 
+        public DelegateCommand AlasimSinirFormGosterCommand => new DelegateCommand(OnAlasimSinirFormGoster);
+
+        private void OnAlasimSinirFormGoster()
+        {
+
+            AlasimSinirView vw = new AlasimSinirView();
+            AlasimSinirVM vm = new AlasimSinirVM();
+            vw.DataContext = vm;
+
+            vw.Show();
+        }
+
         public string AktifFileName { get; set; }
 
         private void onYenile()
