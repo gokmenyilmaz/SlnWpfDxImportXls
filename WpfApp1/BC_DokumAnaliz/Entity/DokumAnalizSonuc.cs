@@ -32,6 +32,11 @@ namespace WpfApp1.BC_DokumKalite
         public decimal Al { get; set; }
         public string Fe_Err { get; internal set; }
         public string Cu_Err { get; internal set; }
+        public string Mn_Err { get; internal set; }
+        public string Mg_Err { get; internal set; }
+        public string Ti_Err { get; internal set; }
+        public string Zn_Err { get; internal set; }
+        public string Al_Err { get; internal set; }
     }
 
 

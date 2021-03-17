@@ -7,19 +7,20 @@ using WpfApp1.BC_DokumKalite;
 
 namespace WpfApp1.BC_DokumAnaliz
 {
-    public class DokumAnalizRepository
+    public class DokumAlasimRepository
     {
         _DokumAnalizDbContext dc = new _DokumAnalizDbContext();
-       
-      
 
-        public List<DokumAnalizSonuc> DokumAnalizSonuclariGetir(DateTime date)
+        public List<DokumAlasimSinir> DokumAnalizSinirlariGetir()
         {
-            var sonuc = dc.DokumAnalizSonuclari
-                .Where(c => c.TarihSaat.Date == date)
-                .ToList();
+            var sonuc = dc.DokumAlasimSinirlari.ToList();
 
             return sonuc;
+        }
+
+        internal void Kaydet()
+        {
+            dc.SaveChanges();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace WpfApp1
         {
             string deger = (string)value;
 
-            var renk = deger.Length > 0 ? "Red" : "Green";
+            var renk = deger.Length > 0 ? "Red" : "Black";
 
             return renk;
 

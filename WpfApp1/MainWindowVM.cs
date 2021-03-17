@@ -19,6 +19,9 @@ namespace WpfApp1
         public List<DokumAlasimSinir> DokumAlasimSinirlari { get; }
 
         DokumAnalizRepository repo = new DokumAnalizRepository();
+
+        DokumAlasimRepository repoAlasimSinir = new DokumAlasimRepository();
+
         public DelegateCommand DosyaSecCommand => new DelegateCommand(onDosyaSec);
 
         public DelegateCommand YenileCommand => new DelegateCommand(onYenile);
@@ -119,6 +122,12 @@ namespace WpfApp1
                 item.Si_Err = AlasimHataGetir(item.Alasim, "Si", item.Si);
                 item.Fe_Err = AlasimHataGetir(item.Alasim, "Fe", item.Fe);
                 item.Cu_Err = AlasimHataGetir(item.Alasim, "Cu", item.Cu);
+
+                item.Mn_Err = AlasimHataGetir(item.Alasim, "Mn", item.Mn);
+                item.Mg_Err = AlasimHataGetir(item.Alasim, "Mg", item.Mg);
+                item.Ti_Err = AlasimHataGetir(item.Alasim, "Ti", item.Ti);
+                item.Zn_Err = AlasimHataGetir(item.Alasim, "Zn", item.Zn);
+                item.Al_Err = AlasimHataGetir(item.Alasim, "Al", item.Al);
             }
         }
 
@@ -126,7 +135,7 @@ namespace WpfApp1
         {
             DokumAnalizSonucListe = new ObservableCollection<DokumAnalizSonuc>();
 
-            DokumAlasimSinirlari = repo.DokumAnalizSinirlariGetir();
+            DokumAlasimSinirlari = repoAlasimSinir.DokumAnalizSinirlariGetir();
 
         }
 

@@ -9,8 +9,8 @@
     xmlns:local="clr-namespace:WpfApp1"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="1048.1"
-    Height="601.2"
+    Width="1188.2"
+    Height="656.2"
     FontSize="15"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -19,7 +19,7 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <local:DokumAlasimSinirRenkConverter x:Key="cnv1"/>
+        <local:DokumAlasimSinirRenkConverter x:Key="cnv1" />
     </Window.Resources>
 
     <Grid>
@@ -58,13 +58,25 @@
                     ShowTotalSummary="True" />
             </dxg:GridControl.View>
             <dxg:GridColumn
-                Width="150"
+                Width="100"
                 FieldName="TarihSaat"
+                Header="Tarih"
                 IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:TextEditSettings DisplayFormat="dd/MM/yyyy hh:mm:ss" />
+                    <dxe:TextEditSettings HorizontalContentAlignment="Center" DisplayFormat="dd/MM/yyyy" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
+
+            <dxg:GridColumn
+                Width="90"
+                FieldName="TarihSaat"
+                Header="Saat"
+                IsSmart="True">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:TextEditSettings HorizontalContentAlignment="Center" DisplayFormat="HH:mm:ss" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+
             <dxg:GridColumn
                 Width="80"
                 AutoFilterCriteria="Contains"
@@ -98,10 +110,16 @@
                 IsSmart="True">
                 <dxg:GridColumn.CellTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="4" VerticalAlignment="Top">
-                            <TextBlock  Text="{Binding RowData.Row.Si}" 
-                                        Foreground="{Binding RowData.Row.Si_Err, Converter={StaticResource cnv1}}"  />
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
                             <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Si_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Si}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
                                 FontSize="12"
                                 Text="{Binding RowData.Row.Si_Err}" />
                         </StackPanel>
@@ -115,8 +133,18 @@
                 IsSmart="True">
                 <dxg:GridColumn.CellTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="4" VerticalAlignment="Top">
-                            <TextBlock Text="{Binding RowData.Row.Fe}" />
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Fe_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Fe}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Fe_Err}" />
                         </StackPanel>
                     </DataTemplate>
                 </dxg:GridColumn.CellTemplate>
@@ -128,8 +156,18 @@
                 IsSmart="True">
                 <dxg:GridColumn.CellTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="4" VerticalAlignment="Top">
-                            <TextBlock Text="{Binding RowData.Row.Cu}" />
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Cu_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Cu}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Cu_Err}" />
                         </StackPanel>
                     </DataTemplate>
                 </dxg:GridColumn.CellTemplate>
@@ -137,28 +175,127 @@
 
             <dxg:GridColumn
                 Width="80"
+                EditSettings="{dxe:TextSettings DisplayFormat=n4}"
                 FieldName="Mn"
-                IsSmart="True" />
+                IsSmart="True">
+
+
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Mn_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Mn}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Mn_Err}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
+                EditSettings="{dxe:TextSettings DisplayFormat=n4}"
                 FieldName="Mg"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Mg_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Mg}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Mg_Err}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
+                EditSettings="{dxe:TextSettings DisplayFormat=n4}"
                 FieldName="Ti"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Ti_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Ti}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Ti_Err}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
+                EditSettings="{dxe:TextSettings DisplayFormat=n4}"
                 FieldName="Zn"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Zn_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Zn}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Zn_Err}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
 
             <dxg:GridColumn
                 Width="80"
+                EditSettings="{dxe:TextSettings DisplayFormat=n4}"
                 FieldName="Al"
-                IsSmart="True" />
+                IsSmart="True">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="{Binding RowData.Row.Al_Err, Converter={StaticResource cnv1}}"
+                                Text="{Binding RowData.Row.Al}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="{Binding RowData.Row.Al_Err}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
+
+
 
         </dxg:GridControl>
 

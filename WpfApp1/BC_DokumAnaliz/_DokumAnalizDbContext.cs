@@ -8,7 +8,7 @@ using WpfApp1.BC_DokumKalite;
 
 namespace WpfApp1.BC_DokumAnaliz
 {
-    public class DokumAnalizDbContext:DbContext
+    public class _DokumAnalizDbContext:DbContext
     {
         public DbSet<DokumAlasimSinir> DokumAlasimSinirlari { get; set; }
 
