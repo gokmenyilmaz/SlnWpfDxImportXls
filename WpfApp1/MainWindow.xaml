@@ -24,7 +24,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" MinHeight="55.2" />
+            <RowDefinition Height="auto" MinHeight="130.4" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -32,7 +32,7 @@
             Grid.Row="1"
             AutoGenerateColumns="None"
             EnableSmartColumnsGeneration="True"
-            ItemsSource="{Binding DokumAnalizSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            ItemsSource="{Binding DokumAnalizSonucListe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,2.6,-0.4,0.4">
 
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem DisplayFormat="n0" FieldName="TarihSaat" ShowInColumn="TarihSaat" SummaryType="Count"/>
@@ -304,7 +304,7 @@
 
         </dxg:GridControl>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="0,0,-0.4,3.4">
             <Button
                 Width="185"
                 Height="31"

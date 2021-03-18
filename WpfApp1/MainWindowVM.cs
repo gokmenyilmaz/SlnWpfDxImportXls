@@ -75,13 +75,18 @@ namespace WpfApp1
 
         private void onDosyaSec()
         {
-           OpenFileDialog fd = new OpenFileDialog();
-           var sonuc=fd.ShowDialog();
+           //OpenFileDialog fd = new OpenFileDialog();
+           //var sonuc=fd.ShowDialog();
 
-           if(sonuc==true)
-           {
-                VerileriYukle(fd.FileName);
-           }
+           //if(sonuc==true)
+           //{
+           //     VerileriYukle(fd.FileName);
+           //}
+
+
+            var yol = @"\\192.168.1.204\PandaFile\Spektro";
+
+            VerileriYukle(yol);
 
             AktifFileName = fd.FileName;
 
